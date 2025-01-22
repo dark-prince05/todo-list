@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+  </head>
+  <body>
+    <h1>Todo App</h1>
+    <div class="container">
+      <div class="sidebar">
+        <div class="projects">
+          <h2>Projects</h2>
+          <button class="proj-add-btn">&plus;</button>
+          <dialog>
+            <input type="text" />
+          </dialog>
+        </div>
+        <ul class="lists">
+          <li>Daily Routine</li>
+          <li>Gym</li>
+        </ul>
+      </div>
+      <div class="main">
+        <div class="project-header">
+          <div class="project-title">Daily Routine</div>
+          <button class="task-btn">Add Task</button>
+        </div>
+        <div class="main-contents">
+          <dialog>
+            <input type="text" name="input-task" />
+            <label for="input-task"></label>
+            <input type="date" />
+          </dialog>
+          <div class="tasks">
+            <input id="check" type="checkbox" name="task-name" />
+            <label for="task-name">brush</label>
+          </div>
+          <div class="task-details">
+            <label>22/02/2025</label>
+            <img src="../svg/edit.svg" alt="" />
+            <img src="../svg/delete.svg" alt="" />
+          </div>
+          <div class="tasks">
+            <input id="check" type="checkbox" name="task-name" />
+            <label class="lbl" for="task-name">drink water</label>
+          </div>
+          <div class="task-details">
+            <img src="../svg/edit.svg" alt="" />
+            <img src="../svg/delete.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
