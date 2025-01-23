@@ -1,9 +1,31 @@
-export default function createTodo(title, description, dueDate, priority, checked){
+function createTodo(title, dueDate, priority) {
   return {
-                          title,
-                          description,
-                          dueDate,
+    title,
+    dueDate,
     priority,
-    checked,
+  };
+}
+
+export function todo() {
+  const todos = [];
+
+  function addTodo(title, dueDate, priority) {
+    todos.push(createTodo(title, dueDate, priority));
   }
+
+  function editTodo(ind, title, dueDate, priority) {
+    if (title) todos[ind].title = title;
+    if (dueDate) todos[ind].title = dueDate;
+    if (priority) todos[ind].title = priority;
+  }
+
+  function removeTodo(ind) {
+    todos.splice(ind, 1);
+  }
+  return {
+    getTodos: () => todos,
+    addTodo,
+    editTodo,
+    removeTodo,
+  };
 }

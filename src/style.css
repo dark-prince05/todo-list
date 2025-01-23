@@ -4,23 +4,40 @@
   font-family: "Roboto", sans-serif;
 }
 
+:root {
+  --darkblue: #002c54;
+  --red: #dc2626;
+}
+
 h1 {
   margin: 0;
   height: 50px;
   display: flex;
   padding-left: 10px;
   align-items: center;
+  color: var(--darkblue);
 }
+
 img {
-  color: red;
+  color: darkblue;
 }
+
+img:hover {
+  cursor: pointer;
+  background-color: #00000050;
+}
+
+img:active {
+  transform: scale(0.9);
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
 
 .sidebar {
-  background-color: #dc2626;
+  background-color: var(--red);
   color: white;
   border-radius: 5px;
   padding-left: 10px;
@@ -28,6 +45,7 @@ img {
 }
 
 .projects {
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,7 +55,7 @@ img {
   color: white;
   padding-bottom: 3px;
   margin-right: 20px;
-  background: #dc2626;
+  background: var(--red);
   border: none;
 }
 
@@ -55,11 +73,13 @@ ul {
   display: grid;
 }
 li {
-  background: white;
   font-weight: bold;
-  color: #dc2626;
   border-radius: 5px;
   padding: 10px;
+}
+.active-proj {
+  background-color: white;
+  color: var(--red);
 }
 
 .main-contents {
@@ -68,7 +88,6 @@ li {
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 20px;
   align-items: center;
 }
@@ -79,7 +98,7 @@ img {
 
 .main {
   background-color: #fdf6f6;
-  color: #002c54;
+  color: var(--darkblue);
   border-radius: 5px;
 }
 
@@ -90,6 +109,7 @@ img {
 
 .project-header {
   display: grid;
+  padding-top: 10px;
   justify-items: center;
   gap: 20px;
   margin-bottom: 20px;
@@ -98,13 +118,13 @@ img {
 .task-btn {
   font-weight: bold;
   height: 30px;
-  border: 2px dashed #002c54;
-  color: #002c54;
+  border: 2px dashed var(--darkblue);
+  color: var(--darkblue);
   background-color: #fdf6f6;
 }
 
 .task-btn:hover {
-  background-color: #002c54;
+  background-color: var(--darkblue);
   color: white;
 }
 
@@ -114,16 +134,67 @@ img {
 
 .tasks {
   font-size: 1em;
-  justify-self: start;
-  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.task-details {
-  justify-self: end;
+.tasks > div {
   display: flex;
+  gap: 5px;
   align-items: center;
 }
 
 input[type="checkbox"]:checked + label {
   text-decoration: line-through;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(3px);
+  background-color: #00000080;
+}
+
+.proj-dialog {
+  margin: auto;
+  padding: 20px;
+}
+
+.proj-dialog-container {
+  display: grid;
+  justify-items: center;
+  width: 300px;
+  height: 100px;
+  gap: 20px;
+}
+
+.proj-dialog-container div:first-child {
+  display: grid;
+  color: var(--darkblue);
+  font-weight: bold;
+}
+
+.proj-dialog-container div:last-child {
+  display: flex;
+  gap: 30px;
+}
+
+.proj-dialog-add,
+.proj-dialog-cancel {
+  width: 60px;
+  border: 2px dashed var(--darkblue);
+  height: 30px;
+  color: var(--darkblue);
+  font-weight: bold;
+  background-color: white;
+}
+
+.proj-dialog-add:hover,
+.proj-dialog-cancel:hover {
+  background-color: var(--darkblue);
+  color: white;
+}
+
+.proj-dialog-add:active,
+.proj-dialog-cancel:active {
+  transform: scale(0.9);
 }

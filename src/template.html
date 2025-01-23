@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title></title>
+    <title>To-do</title>
   </head>
   <body>
     <h1>Todo App</h1>
@@ -12,14 +12,20 @@
         <div class="projects">
           <h2>Projects</h2>
           <button class="proj-add-btn">&plus;</button>
-          <dialog>
-            <input type="text" />
+          <dialog class="proj-dialog">
+            <div class="proj-dialog-container">
+              <div>
+                <label for="proj-name-inp">Enter Project Name</label>
+                <input type="text" name="proj-name-inp" />
+              </div>
+              <div>
+                <button class="proj-dialog-add">add</button>
+                <button class="proj-dialog-cancel">cancel</button>
+              </div>
+            </div>
           </dialog>
         </div>
-        <ul class="lists">
-          <li>Daily Routine</li>
-          <li>Gym</li>
-        </ul>
+        <ul class="lists"></ul>
       </div>
       <div class="main">
         <div class="project-header">
@@ -33,21 +39,25 @@
             <input type="date" />
           </dialog>
           <div class="tasks">
-            <input id="check" type="checkbox" name="task-name" />
-            <label for="task-name">brush</label>
-          </div>
-          <div class="task-details">
-            <label>22/02/2025</label>
-            <img src="../svg/edit.svg" alt="" />
-            <img src="../svg/delete.svg" alt="" />
+            <div>
+              <input id="check" type="checkbox" name="task-name" />
+              <label for="task-name">brush</label>
+            </div>
+            <div>
+              <div>22/02/2025</div>
+              <img src="../svg/edit.svg" alt="" />
+              <img src="../svg/delete.svg" alt="" />
+            </div>
           </div>
           <div class="tasks">
-            <input id="check" type="checkbox" name="task-name" />
-            <label class="lbl" for="task-name">drink water</label>
-          </div>
-          <div class="task-details">
-            <img src="../svg/edit.svg" alt="" />
-            <img src="../svg/delete.svg" alt="" />
+            <div>
+              <input id="check" type="checkbox" name="task-name" />
+              <label class="lbl" for="task-name">drink water</label>
+            </div>
+            <div>
+              <img src="../svg/edit.svg" alt="" />
+              <img src="../svg/delete.svg" alt="" />
+            </div>
           </div>
         </div>
       </div>
