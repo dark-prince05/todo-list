@@ -15,8 +15,8 @@ export function todo() {
 
   function editTodo(ind, title, dueDate, priority) {
     if (title) todos[ind].title = title;
-    if (dueDate) todos[ind].title = dueDate;
-    if (priority) todos[ind].title = priority;
+    if (dueDate) todos[ind].dueDate = dueDate;
+    if (priority) todos[ind].priority = priority;
   }
 
   function removeTodo(ind) {
@@ -24,6 +24,7 @@ export function todo() {
   }
   return {
     getTodos: () => todos,
+    getLength: () => todos.length,
     addTodo,
     editTodo,
     removeTodo,

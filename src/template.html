@@ -15,7 +15,7 @@
           <dialog class="proj-dialog">
             <div class="proj-dialog-container">
               <div>
-                <label for="proj-name-inp">Enter Project Name</label>
+                <label for="proj-name-inp">Project Title</label>
                 <input type="text" name="proj-name-inp" />
               </div>
               <div>
@@ -31,16 +31,35 @@
         <div class="project-header">
           <div class="project-title">Daily Routine</div>
           <button class="task-btn">Add Task</button>
+          <dialog class="task-dialog">
+            <div class="task-dialog-container">
+              <div>
+                <label for="input-task">Task Title</label><br />
+                <input type="text" name="input-task" />
+              </div>
+              <div>
+                <label for="due-date">DueDate</label><br />
+                <input type="date" name="due-date" />
+              </div>
+              <div>
+                <label for="pririty">Priority</label><br />
+                <select name="priority">
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+              <div class="task-dialog-btns">
+                <button class="task-dialog-add">Add</button>
+                <button class="task-dialog-cancel">Cancel</button>
+              </div>
+            </div>
+          </dialog>
         </div>
         <div class="main-contents">
-          <dialog>
-            <input type="text" name="input-task" />
-            <label for="input-task"></label>
-            <input type="date" />
-          </dialog>
-          <div class="tasks">
+          <div class="tasks green">
             <div>
-              <input id="check" type="checkbox" name="task-name" />
+              <input type="checkbox" name="task-name" />
               <label for="task-name">brush</label>
             </div>
             <div>
@@ -49,9 +68,9 @@
               <img src="../svg/delete.svg" alt="" />
             </div>
           </div>
-          <div class="tasks">
+          <div class="tasks red">
             <div>
-              <input id="check" type="checkbox" name="task-name" />
+              <input type="checkbox" name="task-name" />
               <label class="lbl" for="task-name">drink water</label>
             </div>
             <div>

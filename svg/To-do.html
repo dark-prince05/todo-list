@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To-do</title>
+  <script defer="defer" src="To-do_files/main.js"></script><style>* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --darkblue: #002c54;
+  --red: #dc2626;
+}
+
+h1 {
+  margin: 0;
+  height: 50px;
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
+  color: var(--darkblue);
+}
+
+img {
+  color: darkblue;
+}
+
+img:hover {
+  cursor: pointer;
+  background-color: #00000050;
+}
+
+img:active {
+  transform: scale(0.9);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.sidebar {
+  background-color: var(--red);
+  color: white;
+  border-radius: 5px;
+  padding-left: 10px;
+  height: 100vh;
+}
+
+.projects {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.proj-add-btn {
+  font-size: 2em;
+  color: white;
+  padding-bottom: 3px;
+  margin-right: 20px;
+  background: var(--red);
+  border: none;
+}
+
+.proj-add-btn:active {
+  transform: scale(0.9);
+}
+
+.proj-add-btn:hover {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding-top: 10px;
+  padding-right: 10px;
+  display: grid;
+}
+
+li {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+li > img {
+  width: 20px;
+}
+
+li:hover {
+  background-color: white;
+  color: var(--red);
+}
+
+.active-proj {
+  background-color: white;
+  color: var(--red);
+}
+
+.main-contents {
+  width: 60%;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  gap: 20px;
+  align-items: center;
+}
+
+img {
+  width: 30px;
+}
+
+.main {
+  background-color: #fdf6f6;
+  color: var(--darkblue);
+  border-radius: 5px;
+}
+
+.project-title {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.project-header {
+  display: grid;
+  padding-top: 10px;
+  justify-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.task-btn {
+  font-weight: bold;
+  height: 30px;
+  border: 2px dashed var(--darkblue);
+  color: var(--darkblue);
+  background-color: #fdf6f6;
+}
+
+.task-btn:hover {
+  background-color: var(--darkblue);
+  color: white;
+}
+
+.task-btn:active {
+  transform: scale(0.9);
+}
+
+.tasks {
+  font-size: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tasks > div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(3px);
+  background-color: #00000080;
+}
+
+.proj-dialog {
+  margin: auto;
+  padding: 20px;
+}
+
+.proj-dialog-container {
+  display: grid;
+  justify-items: center;
+  width: 300px;
+  height: 100px;
+  gap: 20px;
+}
+
+.proj-dialog-container div:first-child {
+  display: grid;
+  color: var(--darkblue);
+  font-weight: bold;
+}
+
+.proj-dialog-container div:last-child {
+  display: flex;
+  gap: 30px;
+}
+
+.proj-dialog-add,
+.proj-dialog-cancel {
+  width: 60px;
+  border: 2px dashed var(--darkblue);
+  height: 30px;
+  color: var(--darkblue);
+  font-weight: bold;
+  background-color: white;
+}
+
+.proj-dialog-add:hover,
+.proj-dialog-cancel:hover {
+  background-color: var(--darkblue);
+  color: white;
+}
+
+.proj-dialog-add:active,
+.proj-dialog-cancel:active {
+  transform: scale(0.9);
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9zdHlsZS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxVQUFVO0VBQ1YsU0FBUztFQUNULGlDQUFpQztBQUNuQzs7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsU0FBUztFQUNULFlBQVk7RUFDWixhQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLG1CQUFtQjtFQUNuQixzQkFBc0I7QUFDeEI7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsZUFBZTtFQUNmLDJCQUEyQjtBQUM3Qjs7QUFFQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGFBQWE7RUFDYiw4QkFBOEI7QUFDaEM7O0FBRUE7RUFDRSw0QkFBNEI7RUFDNUIsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsYUFBYTtBQUNmOztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYiw4QkFBOEI7RUFDOUIsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixrQkFBa0I7RUFDbEIsc0JBQXNCO0VBQ3RCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxxQkFBcUI7RUFDckIsaUJBQWlCO0VBQ2pCLG1CQUFtQjtFQUNuQixhQUFhO0FBQ2Y7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsYUFBYTtFQUNiLDhCQUE4QjtFQUM5QixrQkFBa0I7RUFDbEIsYUFBYTtBQUNmOztBQUVBO0VBQ0UsV0FBVztBQUNiOztBQUVBO0VBQ0UsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLHVCQUF1QjtFQUN2QixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxVQUFVO0VBQ1YsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFNBQVM7RUFDVCxtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxXQUFXO0FBQ2I7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsc0JBQXNCO0VBQ3RCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsaUJBQWlCO0VBQ2pCLHFCQUFxQjtFQUNyQixTQUFTO0VBQ1QsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixrQ0FBa0M7RUFDbEMsc0JBQXNCO0VBQ3RCLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLGlDQUFpQztFQUNqQyxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRSxjQUFjO0VBQ2QsYUFBYTtFQUNiLDhCQUE4QjtFQUM5QixtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsUUFBUTtFQUNSLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLDZCQUE2QjtBQUMvQjs7QUFFQTtFQUNFLDBCQUEwQjtFQUMxQiwyQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSxZQUFZO0VBQ1osYUFBYTtBQUNmOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHFCQUFxQjtFQUNyQixZQUFZO0VBQ1osYUFBYTtFQUNiLFNBQVM7QUFDWDs7QUFFQTtFQUNFLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsYUFBYTtFQUNiLFNBQVM7QUFDWDs7QUFFQTs7RUFFRSxXQUFXO0VBQ1gsa0NBQWtDO0VBQ2xDLFlBQVk7RUFDWixzQkFBc0I7RUFDdEIsaUJBQWlCO0VBQ2pCLHVCQUF1QjtBQUN6Qjs7QUFFQTs7RUFFRSxpQ0FBaUM7RUFDakMsWUFBWTtBQUNkOztBQUVBOztFQUVFLHFCQUFxQjtBQUN2QiIsInNvdXJjZXNDb250ZW50IjpbIioge1xuICBwYWRkaW5nOiAwO1xuICBtYXJnaW46IDA7XG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xufVxuXG46cm9vdCB7XG4gIC0tZGFya2JsdWU6ICMwMDJjNTQ7XG4gIC0tcmVkOiAjZGMyNjI2O1xufVxuXG5oMSB7XG4gIG1hcmdpbjogMDtcbiAgaGVpZ2h0OiA1MHB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGNvbG9yOiB2YXIoLS1kYXJrYmx1ZSk7XG59XG5cbmltZyB7XG4gIGNvbG9yOiBkYXJrYmx1ZTtcbn1cblxuaW1nOmhvdmVyIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDAwMDAwNTA7XG59XG5cbmltZzphY3RpdmUge1xuICB0cmFuc2Zvcm06IHNjYWxlKDAuOSk7XG59XG5cbi5jb250YWluZXIge1xuICBkaXNwbGF5OiBncmlkO1xuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmciA0ZnI7XG59XG5cbi5zaWRlYmFyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tcmVkKTtcbiAgY29sb3I6IHdoaXRlO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcbiAgaGVpZ2h0OiAxMDB2aDtcbn1cblxuLnByb2plY3RzIHtcbiAgcGFkZGluZy10b3A6IDEwcHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cbi5wcm9qLWFkZC1idG4ge1xuICBmb250LXNpemU6IDJlbTtcbiAgY29sb3I6IHdoaXRlO1xuICBwYWRkaW5nLWJvdHRvbTogM3B4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG4gIGJhY2tncm91bmQ6IHZhcigtLXJlZCk7XG4gIGJvcmRlcjogbm9uZTtcbn1cblxuLnByb2otYWRkLWJ0bjphY3RpdmUge1xuICB0cmFuc2Zvcm06IHNjYWxlKDAuOSk7XG59XG5cbi5wcm9qLWFkZC1idG46aG92ZXIge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbnVsIHtcbiAgbGlzdC1zdHlsZS10eXBlOiBub25lO1xuICBwYWRkaW5nLXRvcDogMTBweDtcbiAgcGFkZGluZy1yaWdodDogMTBweDtcbiAgZGlzcGxheTogZ3JpZDtcbn1cblxubGkge1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDEwcHg7XG59XG5cbmxpID4gaW1nIHtcbiAgd2lkdGg6IDIwcHg7XG59XG5cbmxpOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG4gIGNvbG9yOiB2YXIoLS1yZWQpO1xufVxuXG4uYWN0aXZlLXByb2oge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbiAgY29sb3I6IHZhcigtLXJlZCk7XG59XG5cbi5tYWluLWNvbnRlbnRzIHtcbiAgd2lkdGg6IDYwJTtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xuICBtYXJnaW4tcmlnaHQ6IGF1dG87XG4gIGRpc3BsYXk6IGdyaWQ7XG4gIGdhcDogMjBweDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuaW1nIHtcbiAgd2lkdGg6IDMwcHg7XG59XG5cbi5tYWluIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZkZjZmNjtcbiAgY29sb3I6IHZhcigtLWRhcmtibHVlKTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xufVxuXG4ucHJvamVjdC10aXRsZSB7XG4gIGZvbnQtc2l6ZTogMS43ZW07XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xufVxuXG4ucHJvamVjdC1oZWFkZXIge1xuICBkaXNwbGF5OiBncmlkO1xuICBwYWRkaW5nLXRvcDogMTBweDtcbiAganVzdGlmeS1pdGVtczogY2VudGVyO1xuICBnYXA6IDIwcHg7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbi50YXNrLWJ0biB7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBoZWlnaHQ6IDMwcHg7XG4gIGJvcmRlcjogMnB4IGRhc2hlZCB2YXIoLS1kYXJrYmx1ZSk7XG4gIGNvbG9yOiB2YXIoLS1kYXJrYmx1ZSk7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZGY2ZjY7XG59XG5cbi50YXNrLWJ0bjpob3ZlciB7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWRhcmtibHVlKTtcbiAgY29sb3I6IHdoaXRlO1xufVxuXG4udGFzay1idG46YWN0aXZlIHtcbiAgdHJhbnNmb3JtOiBzY2FsZSgwLjkpO1xufVxuXG4udGFza3Mge1xuICBmb250LXNpemU6IDFlbTtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuXG4udGFza3MgPiBkaXYge1xuICBkaXNwbGF5OiBmbGV4O1xuICBnYXA6IDVweDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdOmNoZWNrZWQgKyBsYWJlbCB7XG4gIHRleHQtZGVjb3JhdGlvbjogbGluZS10aHJvdWdoO1xufVxuXG5kaWFsb2c6OmJhY2tkcm9wIHtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDNweCk7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwMDAwMDA4MDtcbn1cblxuLnByb2otZGlhbG9nIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4ucHJvai1kaWFsb2ctY29udGFpbmVyIHtcbiAgZGlzcGxheTogZ3JpZDtcbiAganVzdGlmeS1pdGVtczogY2VudGVyO1xuICB3aWR0aDogMzAwcHg7XG4gIGhlaWdodDogMTAwcHg7XG4gIGdhcDogMjBweDtcbn1cblxuLnByb2otZGlhbG9nLWNvbnRhaW5lciBkaXY6Zmlyc3QtY2hpbGQge1xuICBkaXNwbGF5OiBncmlkO1xuICBjb2xvcjogdmFyKC0tZGFya2JsdWUpO1xuICBmb250LXdlaWdodDogYm9sZDtcbn1cblxuLnByb2otZGlhbG9nLWNvbnRhaW5lciBkaXY6bGFzdC1jaGlsZCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGdhcDogMzBweDtcbn1cblxuLnByb2otZGlhbG9nLWFkZCxcbi5wcm9qLWRpYWxvZy1jYW5jZWwge1xuICB3aWR0aDogNjBweDtcbiAgYm9yZGVyOiAycHggZGFzaGVkIHZhcigtLWRhcmtibHVlKTtcbiAgaGVpZ2h0OiAzMHB4O1xuICBjb2xvcjogdmFyKC0tZGFya2JsdWUpO1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG59XG5cbi5wcm9qLWRpYWxvZy1hZGQ6aG92ZXIsXG4ucHJvai1kaWFsb2ctY2FuY2VsOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGFya2JsdWUpO1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5wcm9qLWRpYWxvZy1hZGQ6YWN0aXZlLFxuLnByb2otZGlhbG9nLWNhbmNlbDphY3RpdmUge1xuICB0cmFuc2Zvcm06IHNjYWxlKDAuOSk7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style></head>
+  <body>
+    <h1>Todo App</h1>
+    <div class="container">
+      <div class="sidebar">
+        <div class="projects">
+          <h2>Projects</h2>
+          <button class="proj-add-btn">+</button>
+          <dialog class="proj-dialog" open="">
+            <div class="proj-dialog-container">
+              <div>
+                <label for="proj-name-inp">Enter Project Name</label>
+                <input type="text" name="proj-name-inp" value="d">
+              </div>
+              <div>
+                <button class="proj-dialog-add">add</button>
+                <button class="proj-dialog-cancel">cancel</button>
+              </div>
+            </div>
+          </dialog>
+        </div>
+        <ul class="lists"><li class="active-proj" id="0">Daily Routine<img src="To-do_files/000de7714eca5ab46551.svg" class="proj-del-btn" id="0"></li></ul>
+      </div>
+      <div class="main">
+        <div class="project-header">
+          <div class="project-title">Daily Routine</div>
+          <button class="task-btn">Add Task</button>
+        </div>
+        <div class="main-contents">
+          <dialog>
+            <input type="text" name="input-task">
+            <label for="input-task"></label>
+            <input type="date">
+          </dialog>
+          <div class="tasks">
+            <div>
+              <input id="check" type="checkbox" name="task-name">
+              <label for="task-name">brush</label>
+            </div>
+            <div>
+              <div>22/02/2025</div>
+              <img src="To-do_files/a862a0fe5ad5d6861395.svg" alt="">
+              <img src="To-do_files/000de7714eca5ab46551.svg" alt="">
+            </div>
+          </div>
+          <div class="tasks">
+            <div>
+              <input id="check" type="checkbox" name="task-name">
+              <label class="lbl" for="task-name">drink water</label>
+            </div>
+            <div>
+              <img src="To-do_files/a862a0fe5ad5d6861395.svg" alt="">
+              <img src="To-do_files/000de7714eca5ab46551.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+</body></html>

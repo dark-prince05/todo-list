@@ -66,21 +66,31 @@ img:active {
 .proj-add-btn:hover {
   cursor: pointer;
 }
+
 ul {
   list-style-type: none;
   padding-top: 10px;
   padding-right: 10px;
   display: grid;
 }
+
 li {
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
   border-radius: 5px;
   padding: 10px;
 }
+
+li > img {
+  width: 20px;
+}
+
 li:hover {
   background-color: white;
   color: var(--red);
 }
+
 .active-proj {
   background-color: white;
   color: var(--red);
@@ -139,10 +149,29 @@ img {
 .tasks {
   font-size: 1em;
   display: flex;
+  border-radius: 5px;
+  padding: 10px;
   justify-content: space-between;
   align-items: center;
 }
 
+.tasks.low {
+  border: 2px solid #00cc00;
+}
+.tasks.low.completed,
+.tasks.medium.completed,
+.tasks.high.completed {
+  background-color: #00000090;
+  border: none;
+}
+
+.tasks.medium {
+  border: 2px solid yellow;
+}
+
+.tasks.high {
+  border: 2px solid red;
+}
 .tasks > div {
   display: flex;
   gap: 5px;
@@ -158,7 +187,8 @@ dialog::backdrop {
   background-color: #00000080;
 }
 
-.proj-dialog {
+.proj-dialog,
+.task-dialog {
   margin: auto;
   padding: 20px;
 }
@@ -183,7 +213,9 @@ dialog::backdrop {
 }
 
 .proj-dialog-add,
-.proj-dialog-cancel {
+.task-dialog-add,
+.proj-dialog-cancel,
+.task-dialog-cancel {
   width: 60px;
   border: 2px dashed var(--darkblue);
   height: 30px;
@@ -193,12 +225,38 @@ dialog::backdrop {
 }
 
 .proj-dialog-add:hover,
-.proj-dialog-cancel:hover {
+.task-dialog-add:hover,
+.proj-dialog-cancel:hover,
+.task-dialog-cancel:hover {
   background-color: var(--darkblue);
   color: white;
 }
 
 .proj-dialog-add:active,
-.proj-dialog-cancel:active {
+.task-dialog-add:active,
+.proj-dialog-cancel:active,
+.task-dialog-cancel:active {
   transform: scale(0.9);
+}
+
+.task-dialog-container {
+  display: grid;
+  height: 300px;
+  align-items: center;
+  color: var(--darkblue);
+  justify-content: center;
+  width: 200px;
+}
+
+input[type="date"],
+input[type="text"],
+select {
+  width: 100%;
+  height: 20px;
+  color: var(--darkblue);
+}
+
+.task-dialog-btns {
+  display: flex;
+  justify-content: space-evenly;
 }
