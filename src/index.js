@@ -39,17 +39,20 @@ function userInterface() {
 
   window.addEventListener("load", () => {
     renderProjects();
-    projList.firstChild.classList.add("active-proj");
   });
 
-  function clearProjects() {
-    projList.textContent = "";
-  }
-
   function renderProjects() {
+    let currProjInd = 0;
+    projList.childNodes.forEach((element, ind) => {
+      if (element.classList.contains("active-proj")) {
+        currProjInd = ind;
+      }
+    });
+    projList.textContent = "";
     todos.getTodos().forEach((_, ind) => {
       const li = document.createElement("li");
       li.textContent = todos.getTodos()[ind].name;
+      if (ind === currProjInd) li.classList.add("active-proj");
       li.id = todos.getTodos()[ind].id;
       projList.append(li);
     });
@@ -57,6 +60,7 @@ function userInterface() {
 
   function addProject() {
     projBtn.addEventListener("click", () => {
+      projNameField.value = "";
       projDialog.showModal();
     });
 
@@ -65,11 +69,21 @@ function userInterface() {
     });
 
     projAddBtn.addEventListener("click", () => {
-      clearProjects();
-      const index = todos.getTodos().length;
-      todos.createNewProject(index, projNameField.value);
+      if (projNameField.value.trim() !== "") {
+        const index = todos.getTodos().length;
+        todos.createNewProject(index, projNameField.value);
+      }
       renderProjects();
       projDialog.close();
+    });
+
+    projList.addEventListener("click", (e) => {
+      projList.childNodes.forEach((node) => {
+        if (node.classList) {
+          node.classList.remove("active-proj");
+        }
+      });
+      e.target.classList.add("active-proj");
     });
   }
   return {

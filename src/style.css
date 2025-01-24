@@ -77,6 +77,10 @@ li {
   border-radius: 5px;
   padding: 10px;
 }
+li:hover {
+  background-color: white;
+  color: var(--red);
+}
 .active-proj {
   background-color: white;
   color: var(--red);
