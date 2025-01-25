@@ -6,7 +6,6 @@
 
 :root {
   --darkblue: #002c54;
-  --red: #dc2626;
 }
 
 h1 {
@@ -34,14 +33,14 @@ img:active {
 .container {
   display: grid;
   grid-template-columns: 1fr 4fr;
+  height: 100vh;
 }
 
 .sidebar {
-  background-color: var(--red);
+  background-color: var(--darkblue);
   color: white;
   border-radius: 5px;
   padding-left: 10px;
-  height: 100vh;
 }
 
 .projects {
@@ -55,7 +54,7 @@ img:active {
   color: white;
   padding-bottom: 3px;
   margin-right: 20px;
-  background: var(--red);
+  background: var(--darkblue);
   border: none;
 }
 
@@ -88,12 +87,12 @@ li > img {
 
 li:hover {
   background-color: white;
-  color: var(--red);
+  color: var(--darkblue);
 }
 
 .active-proj {
   background-color: white;
-  color: var(--red);
+  color: var(--darkblue);
 }
 
 .main-contents {
@@ -150,19 +149,13 @@ img {
   font-size: 1em;
   display: flex;
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
   justify-content: space-between;
   align-items: center;
 }
 
 .tasks.low {
   border: 2px solid #00cc00;
-}
-.tasks.low.completed,
-.tasks.medium.completed,
-.tasks.high.completed {
-  background-color: #00000090;
-  border: none;
 }
 
 .tasks.medium {
@@ -172,14 +165,20 @@ img {
 .tasks.high {
   border: 2px solid red;
 }
+
+.tasks.low.completed,
+.tasks.medium.completed,
+.tasks.high.completed {
+  background-color: #00000050;
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  border: 2px solid black;
+}
+
 .tasks > div {
   display: flex;
   gap: 5px;
   align-items: center;
-}
-
-input[type="checkbox"]:checked + label {
-  text-decoration: line-through;
 }
 
 dialog::backdrop {
@@ -214,6 +213,7 @@ dialog::backdrop {
 
 .proj-dialog-add,
 .task-dialog-add,
+.task-dialog-edit,
 .proj-dialog-cancel,
 .task-dialog-cancel {
   width: 60px;
@@ -226,6 +226,7 @@ dialog::backdrop {
 
 .proj-dialog-add:hover,
 .task-dialog-add:hover,
+.task-dialog-edit:hover,
 .proj-dialog-cancel:hover,
 .task-dialog-cancel:hover {
   background-color: var(--darkblue);
@@ -234,6 +235,7 @@ dialog::backdrop {
 
 .proj-dialog-add:active,
 .task-dialog-add:active,
+.task-dialog-edit:active,
 .proj-dialog-cancel:active,
 .task-dialog-cancel:active {
   transform: scale(0.9);
@@ -259,4 +261,8 @@ select {
 .task-dialog-btns {
   display: flex;
   justify-content: space-evenly;
+}
+
+.hidden {
+  display: none;
 }

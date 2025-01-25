@@ -1,8 +1,9 @@
-function createTodo(title, dueDate, priority) {
+function createTodo(title, dueDate, priority, checked = false) {
   return {
     title,
     dueDate,
     priority,
+    checked,
   };
 }
 
@@ -22,6 +23,7 @@ export function todo() {
   function removeTodo(ind) {
     todos.splice(ind, 1);
   }
+
   return {
     getTodos: () => todos,
     getLength: () => todos.length,

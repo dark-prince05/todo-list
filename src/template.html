@@ -35,7 +35,7 @@
             <div class="task-dialog-container">
               <div>
                 <label for="input-task">Task Title</label><br />
-                <input type="text" name="input-task" />
+                <input type="text" name="input-task" required />
               </div>
               <div>
                 <label for="due-date">DueDate</label><br />
@@ -51,34 +51,13 @@
               </div>
               <div class="task-dialog-btns">
                 <button class="task-dialog-add">Add</button>
+                <button class="task-dialog-edit">Save</button>
                 <button class="task-dialog-cancel">Cancel</button>
               </div>
             </div>
           </dialog>
         </div>
-        <div class="main-contents">
-          <div class="tasks green">
-            <div>
-              <input type="checkbox" name="task-name" />
-              <label for="task-name">brush</label>
-            </div>
-            <div>
-              <div>22/02/2025</div>
-              <img src="../svg/edit.svg" alt="" />
-              <img src="../svg/delete.svg" alt="" />
-            </div>
-          </div>
-          <div class="tasks red">
-            <div>
-              <input type="checkbox" name="task-name" />
-              <label class="lbl" for="task-name">drink water</label>
-            </div>
-            <div>
-              <img src="../svg/edit.svg" alt="" />
-              <img src="../svg/delete.svg" alt="" />
-            </div>
-          </div>
-        </div>
+        <div class="main-contents"></div>
       </div>
     </div>
   </body>
