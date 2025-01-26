@@ -19,6 +19,7 @@ h1 {
 
 img {
   color: darkblue;
+  width: 30px;
 }
 
 img:hover {
@@ -103,10 +104,6 @@ li:hover {
   display: grid;
   gap: 20px;
   align-items: center;
-}
-
-img {
-  width: 30px;
 }
 
 .main {

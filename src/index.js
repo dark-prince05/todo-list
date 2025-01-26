@@ -104,12 +104,14 @@ function userInterface() {
         currProjInd = ind;
       }
     });
+
     projList.textContent = "";
     todos.getTodos().forEach((_, ind) => {
       const li = document.createElement("li");
       const delButton = document.createElement("img");
       delButton.src = deleteIcon;
       li.textContent = todos.getTodos()[ind].name;
+
       if (ind === currProjInd) {
         li.classList.add("active-proj");
         delButton.classList.add("proj-del-btn");
@@ -147,6 +149,7 @@ function userInterface() {
       projAddBtn.click();
     }
   });
+
   function todoFunctionalities() {
     projList.addEventListener("click", (e) => {
       projList.childNodes.forEach((node) => {
@@ -154,15 +157,18 @@ function userInterface() {
           node.classList.remove("active-proj");
         }
       });
+
       if (e.target.tagName.toLowerCase() == "li") {
         e.target.classList.add("active-proj");
       }
+
       if (e.target.tagName.toLowerCase() === "img") {
         todos.removeProject(e.target.id);
       }
       renderProjects();
       renderTasks();
     });
+
     taskList.addEventListener("click", (e) => {
       let projInd = 0;
       const todoInd = e.target.parentElement.parentElement.id;
@@ -174,6 +180,7 @@ function userInterface() {
             break;
           }
         }
+
         const taskDiv = checkBox.parentElement.parentElement;
         if (checkBox.checked) {
           todos.getTodos()[projInd].todoName.getTodos()[todoInd].checked = true;
@@ -274,6 +281,7 @@ function userInterface() {
               taskDueDate.textContent = element.dueDate;
               taskDetails.append(taskDueDate);
             }
+
             const taskEditBtn = document.createElement("img");
             taskEditBtn.src = editIcon;
             taskEditBtn.classList.add("edit-btn");
@@ -316,6 +324,7 @@ function userInterface() {
           break;
         }
       }
+
       todos.addNewTask(ind, taskName, date, priority);
       taskNameField.value = "";
       taskDueDate.value = "";
