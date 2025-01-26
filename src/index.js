@@ -5,11 +5,24 @@ import { todo } from "./todo.js";
 import { format } from "date-fns";
 
 function todoList() {
-  const todos = [];
+  const storedTodos = JSON.parse(localStorage.getItem("todolist")) || [];
+
+  const todos = storedTodos.map((project) => {
+    const newTodo = todo();
+    project.tasks.forEach((task) => {
+      newTodo.addTodo(task.title, task.dueDate, task.priority, task.checked);
+    });
+    return {
+      id: project.id,
+      name: project.name,
+      todoName: newTodo,
+    };
+  });
 
   function createNewProject(id, name) {
     const newTodo = todo();
     todos.push({ id, name, todoName: newTodo });
+    saveToLocalStorage();
   }
 
   function removeProject(id) {
@@ -17,18 +30,31 @@ function todoList() {
     todos.map((item, ind) => {
       item.id = ind;
     });
+    saveToLocalStorage();
   }
 
   function addNewTask(ind, title, dueDate, priority) {
     todos[ind].todoName.addTodo(title, dueDate, priority);
+    saveToLocalStorage();
   }
 
   function removeTask(todoInd, taskInd) {
     todos[todoInd].todoName.removeTodo(taskInd);
+    saveToLocalStorage();
   }
 
   function editTask(todoInd, taskInd, title, dueDate, priority) {
     todos[todoInd].todoName.editTodo(taskInd, title, dueDate, priority);
+    saveToLocalStorage();
+  }
+
+  function saveToLocalStorage() {
+    const storedTodos = todos.map((project) => ({
+      id: project.id,
+      name: project.name,
+      tasks: project.todoName.getTodos(),
+    }));
+    localStorage.setItem("todolist", JSON.stringify(storedTodos));
   }
 
   return {
@@ -38,20 +64,9 @@ function todoList() {
     createNewProject,
     removeProject,
     getTodos: () => todos,
+    saveToLocalStorage,
   };
 }
-const t = todoList();
-t.createNewProject(0, "p1");
-t.createNewProject(1, "p2");
-t.createNewProject(2, "p3");
-t.createNewProject(3, "p4");
-t.addNewTask(0, "ddiiidd", "tttt", "dddd");
-t.addNewTask(0, "ddeeeddd", "tttt", "dddd");
-t.addNewTask(1, "ddeeedd", "tttt", "dddd");
-t.addNewTask(2, "ddddkddd", "tttt", "dddd");
-t.addNewTask(3, "dddiiid", "tttt", "dddd");
-t.editTask(0, 0, "thala", "rrr", "898798");
-// console.log(t.getTodos()[0].todoName.getTodos());
 
 function userInterface() {
   const projBtn = document.querySelector(".proj-add-btn");
@@ -73,10 +88,9 @@ function userInterface() {
   const taskDueDate = document.querySelector("input[name=due-date]");
 
   const todos = todoList();
-  todos.createNewProject(0, "Daily Routine");
-  todos.addNewTask(0, "brush", format(new Date(), "MM/dd/yyyy"), "low");
-  todos.addNewTask(0, "yoga", format(new Date(), "MM/dd/yyyy"), "medium");
-  todos.addNewTask(0, "study", format(new Date(), "MM/dd/yyyy"), "high");
+  if (todos.getTodos().length == 0) {
+    todos.createNewProject(0, "Daily Routine");
+  }
 
   window.addEventListener("load", () => {
     renderProjects();
@@ -164,14 +178,14 @@ function userInterface() {
         if (checkBox.checked) {
           todos.getTodos()[projInd].todoName.getTodos()[todoInd].checked = true;
           taskDiv.classList.add("completed");
+          todos.saveToLocalStorage();
         } else {
           todos.getTodos()[projInd].todoName.getTodos()[todoInd].checked =
             false;
           taskDiv.classList.remove("completed");
+          todos.saveToLocalStorage();
         }
       }
-
-      // console.log(e.target.parentElement.parentElement.id);
       if (e.target.tagName.toLowerCase() == "img") {
         if (e.target.classList == "edit-btn") {
           for (let child of projList.childNodes) {
@@ -242,6 +256,7 @@ function userInterface() {
             const taskCheckBox = document.createElement("input");
             taskCheckBox.type = "checkbox";
             taskCheckBox.name = "task-name";
+
             if (element.checked == true) {
               taskDiv.classList.add("completed");
               taskCheckBox.checked = true;
@@ -277,6 +292,7 @@ function userInterface() {
       }
       projTitle.textContent = "";
     }
+    todos.saveToLocalStorage();
   }
 
   function addTasks() {
@@ -323,5 +339,4 @@ function userInterface() {
   };
 }
 
-const ui = userInterface();
-ui.start();
+userInterface().start();

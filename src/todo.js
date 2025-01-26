@@ -10,8 +10,8 @@ function createTodo(title, dueDate, priority, checked = false) {
 export function todo() {
   const todos = [];
 
-  function addTodo(title, dueDate, priority) {
-    todos.push(createTodo(title, dueDate, priority));
+  function addTodo(title, dueDate, priority, checked) {
+    todos.push(createTodo(title, dueDate, priority, checked));
   }
 
   function editTodo(ind, title, dueDate, priority) {
