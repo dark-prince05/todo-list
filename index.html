@@ -1,12 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>To-do List</title>
-    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>To-do</title>
   <script defer src="main.js"></script></head>
   <body>
-  
+    <h1>Todo App</h1>
+    <div class="container">
+      <div class="sidebar">
+        <div class="projects">
+          <h2>Projects</h2>
+          <button class="proj-add-btn">&plus;</button>
+          <dialog class="proj-dialog">
+            <div class="proj-dialog-container">
+              <div>
+                <label for="proj-name-inp">Project Title</label>
+                <input type="text" name="proj-name-inp" />
+              </div>
+              <div>
+                <button class="proj-dialog-add">add</button>
+                <button class="proj-dialog-cancel">cancel</button>
+              </div>
+            </div>
+          </dialog>
+        </div>
+        <ul class="lists"></ul>
+      </div>
+      <div class="main">
+        <div class="project-header">
+          <div class="project-title">Daily Routine</div>
+          <button class="task-btn">Add Task</button>
+          <dialog class="task-dialog">
+            <div class="task-dialog-container">
+              <div>
+                <label for="input-task">Task Title</label><br />
+                <input type="text" name="input-task" required />
+              </div>
+              <div>
+                <label for="due-date">DueDate</label><br />
+                <input type="date" name="due-date" />
+              </div>
+              <div>
+                <label for="pririty">Priority</label><br />
+                <select name="priority">
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+              <div class="task-dialog-btns">
+                <button class="task-dialog-add">Add</button>
+                <button class="task-dialog-edit">Save</button>
+                <button class="task-dialog-cancel">Cancel</button>
+              </div>
+            </div>
+          </dialog>
+        </div>
+        <div class="main-contents"></div>
+      </div>
+    </div>
   </body>
 </html>
